@@ -1,0 +1,309 @@
+:root {
+  --darkerGreen: rgba(3, 104, 53, 0.8);
+  --darkerBlue: rgba(0, 43, 122, 0.7);
+  --plumCrazyPurple: rgba(63, 53, 123, 0.7);
+  --lighterPurple: rgba(138, 126, 206, 0.7);
+  --darkTeal: rgba(27, 144, 152, 0.6);
+  --hotPink: rgba(255, 105, 180, 0.3);
+  --primaryFontColor: rgb(247, 243, 243);
+  --autumnSunrise: rgb(234, 196, 125);
+  --midnightBlack:  rgba(43, 43, 43, 0.8);
+  --wickedSourLime: rgba(160, 223, 137, 0.6);
+  --primaryFont: 'Caveat', sans-serif;
+}
+
+/* Importing the 'Caveat' font from Google Fonts with weights 100, 300, and 700 */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+} 
+
+
+a {
+  color: var(--primary-color);
+}
+
+body {
+  font-family: var(--primaryFont);
+  font-weight: 200;
+  font-size: 18px; /*sets the font size to 22 pixels*/
+  line-height: 1.1; /*sets the line height to 1.1 times the font size*/
+  color: var(--darkerBlue); /*sets the font color to blue*/
+  display: flex; /*uses flexbox layout for the body*/
+  flex-direction: column; /*stacks the body elements vertically*/
+}
+
+h1 {
+  font-family: var(--primaryFont);
+  font-weight: 700;
+  font-size: 30px; /*sets the font size to 22 pixels*/
+  line-height: .9; /*sets the line height to 1.1 times the font size*/
+  color: var(--darkerGreen); /*sets the font color to green*/
+}
+
+h2 {
+  font-family: var(--primaryFont);
+  font-weight: 100;
+  font-size: 25px; /*sets the font size to 22 pixels*/
+  line-height: .8; /*sets the line height to 1.1 times the font size*/
+  color: var(--plumCrazyPurple); /*sets the font color to purple*/
+}   
+
+a {
+    color: var(--lighterPurple); /*sets the link color to a shade of purple*/
+}
+
+a:visited {
+    color: var(--darkTeal); /*visited link is a dark shade of green*/
+}    
+ 
+a:hover {
+    text-decoration: none; /*no underlining when hovering over a link*/
+}
+
+a:active {
+    color: var(--hotPink); /*active link is a shade of pink*/
+}   
+
+button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the background color, font color, and text decoration (underline, etc.) of the button */
+  background-color: var(--darkerGreen); /*medium shade of green*/
+  color: var(--primaryFontColor);
+  text-decoration: none;
+  /*adds spacing to the button (this will be discussed more in-depth later) */
+  padding: 10px;
+  border-radius: 3px;
+  /* gives the button a bottom border with a width of 2px, a type of solid, and a color in RGBA format */
+  border-bottom: 2px solid var(--midnightBlack);
+}
+
+button:hover, button:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.4;
+}
+
+.button__secondary {
+  background-color: var(--autumnSunrise); /*light shade of orange*/
+  color: var(--midnightBlack); /*black*/
+}
+
+.navigation-list__item--active {
+  text-decoration: none;
+}
+
+
+
+
+/*Exercise 1.6 - CSS Box Model and Flexbox*/
+
+* {
+  box-sizing: border-box; /*sets the box-sizing property to border-box for all elements*/
+}
+
+.page-header {
+ display: flex; /*uses flexbox layout for the header*/
+ width: 100%; /*sets the width of the header to 100% of its container*/
+ padding: 5px; /*adds 20 pixels of padding around the header*/
+ margin: 5px 0; /*adds a margin of 10 pixels to the top and bottom of the header*/
+ border: 2px solid var(--darkerBlue); /*adds a border of 3 pixels with a blue color*/
+ background-color: var(--wickedSourLime); /*sets the background color of the header to a*/
+ position: sticky; /*makes the header stick to the top of the viewport when scrolling*/
+ top: 0;
+}
+
+.page-header__item {
+  flex: 0 1 100px; /*sets the flex properties of the header items*/
+}
+
+.page-header__item:last-child {
+  flex-grow: 1; /*allows the last header item to grow and fill available space*/
+  text-align: right; /*aligns the text of the last header item to the right*/
+}
+
+.heading {
+ clear: both; /*clears any floating elements above the footer*/
+ display: flex; /*uses flexbox layout for the footer*/
+ flex-direction: column-reverse; /*stacks the footer items vertically*/
+ text-align: center; /*centers the text within the footer*/
+}
+.navigation-list {
+  list-style-type: none; /*removes the default list styling*/
+}
+
+.navigation-list li {
+display: inline-block; /*displays the list items inline*/
+margin-left: 15px; /*adds a left margin of 15 pixels to each list item*/
+}
+
+.profile {
+  max-width: 700px; /*sets the maximum width of the profile section to 700 pixels*/
+  margin: 0 auto; /*centers the profile section horizontally*/
+}
+
+.profile__portrait {
+  float: left;
+  width: 250px; /*sets the width of the image to 250 pixels*/
+  margin-right: 40px; /*adds a right margin of 40 pixels to the image*/
+  border-radius: 50%; /*makes the image circular*/
+}
+
+.project-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;/*creates three columns, each 200 pixels wide*/
+  /*grid-template-rows: 1fr 1fr;*/
+  grid-gap: 25px; /*adds a gap of 25 pixels between the grid items*/
+}
+
+.project-list__item {
+  background-color: var(--autumnSunrise); /*sets the background color of the grid items to a light shade of orange*/
+  padding: 5px; /*adds 20 pixels of padding around the header*/
+  margin: 5px 0; /*adds a margin of 10 pixels to the top and bottom of the header*/
+  border: 2px solid var(--darkerBlue); /*adds a border of 3 pixels with a blue color*/
+  flex-basis: 100vw;  
+  flex-shrink: 1; 
+}
+
+.page-footer {
+ clear: both;
+ display: flex; /*uses flexbox layout for the header*/
+ width: 100%; /*sets the width of the header to 100% of its container*/
+ justify-content: center; /*centers the footer items horizontally*/
+ justify-items: center;
+ align-items: center; /*centers the footer items vertically*/
+ text-align: center; /*centers the text within the footer*/
+ width: 100%; /*sets the width of the footer to 100% of its container*/
+ margin-top: auto;
+ position: bottom 0;
+}
+
+
+/* Exercise 1.7 - Advanced Topics in CSS */
+@media all and (max-width: 750px) {
+  .project-list {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  .project-list__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+
+
+.button, button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the button */
+  background-color: var(--darkTeal);
+  color: var(--primaryFontColor);
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 3px;
+  /* width of the border, type, color */
+  border-bottom: 2px solid var(--midnightBlack);
+  transition-duration: 0.7s;
+  transition-property: opacity;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 20% */
+  opacity: 0.2;
+}
+
+.navigation-list__item, button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the button */
+  background-color: none;
+  color: var(--primaryFontColor);
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 3px;
+  /* width of the border, type, color */
+  border-bottom: 2px solid var(--midnightBlack);
+  transition-duration: 0.9s;
+  transition-property: opacity;
+}
+
+button:hover,
+button:focus,
+.navigation-list__item:hover,
+.navigation-list__item:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 20% */
+  opacity: 0.2;
+}
+
+
+/* Animations for the SVG on the About page */
+@keyframes color-change {
+  0% {
+    fill: var(--autumnSunrise);
+  }
+  75% {
+    fill: var(--darkTeal);
+  }
+}
+
+.sun {
+  animation-duration: 6s;
+  animation-name: color-change;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes cloud-move {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(500px, 50px);
+  }
+}
+
+.cloud-front {
+  animation-duration: 45s;
+  animation-name: cloud-move;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+
+.cloud-back {
+  animation: 20s cloud-move-reverse infinite alternate linear;
+}
